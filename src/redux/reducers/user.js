@@ -2,7 +2,7 @@ import { login } from '../actions';
 
 const INITIAL_STATE = {
   email: 'alguem@alguem.com',
-  senha: '123456',
+  password: '123456',
 };
 
 function userReducer(state = INITIAL_STATE, action) {
@@ -11,7 +11,7 @@ function userReducer(state = INITIAL_STATE, action) {
     return {
       ...state,
       email: action.payload.email,
-      senha: action.payload.senha,
+      password: action.payload.password,
     };
   default: return state;
   }
