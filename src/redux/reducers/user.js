@@ -1,8 +1,8 @@
 import { login } from '../actions';
 
 const INITIAL_STATE = {
-  email: 'alguem@alguem.com',
-  password: '123456',
+  email: '',
+  password: '',
 };
 
 function userReducer(state = INITIAL_STATE, action) {

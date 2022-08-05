@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import { loggingIn as loggingInAction } from '../redux/actions';
 
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.isLog = this.isLog.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+    this.isLogButtonDisabled = this.isLogButtonDisabled.bind(this);
   }
 
   state = {
@@ -16,32 +17,44 @@ class Login extends React.Component {
     senha: '',
     validEmail: false,
     validPassword: false,
-    isLogButtonDisabled: true,
     loggedIn: false,
   }
 
   onInputChange({ target }) {
+    // const {
+    //   email,
+    //   senha,
+    // } = this.state;
+    const { value, type } = target;
+    const validaEmail = /\S+@\S+\.\S+/;
+    const { length } = value;
+    const val = 6;
+    // const vazio = (senha !== '');
+    if (type === 'email') {
+      if (validaEmail.test(value)) {
+        this.setState({ validEmail: true, email: value });
+      } else {
+        this.setState({ validEmail: false, email: value });
+      }
+    } else if (length >= val) {
+      this.setState({ validPassword: true, senha: value });
+    } else {
+      this.setState({ validPassword: false, senha: value });
+    }
+  }
+
+  isLogButtonDisabled() {
     const {
       validEmail,
       validPassword,
     } = this.state;
-    const { value, type } = target;
-    const validaEmail = /\S+@\S+\.\S+/;
-    const { length } = value;
-    const val = 5;
-    if (type === 'email') {
-      if (validaEmail.test(value)) {
-        this.setState({ validEmail: true, email: value });
-      }
-    } else if (length >= val) {
-      this.setState({ validPassword: true, senha: value });
-    }
-
+    let desabled = true;
     if (validEmail && validPassword) {
-      this.setState({ isLogButtonDisabled: false });
+      desabled = false;
     } else {
-      this.setState({ isLogButtonDisabled: true });
+      desabled = true;
     }
+    return desabled;
   }
 
   isLog() {
@@ -58,7 +71,6 @@ class Login extends React.Component {
     const {
       email,
       senha,
-      isLogButtonDisabled,
       loggedIn,
     } = this.state;
     return (
@@ -90,14 +102,16 @@ class Login extends React.Component {
             />
           </label>
           <br />
-          <input
+          <button
             type="button"
             value="Entrar"
             data-testid="login-submit-button"
             id="Entrar"
-            disabled={ isLogButtonDisabled }
+            disabled={ this.isLogButtonDisabled() }
             onClick={ this.isLog }
-          />
+          >
+            Entrar
+          </button>
           <hr />
         </form>
         {loggedIn && <Redirect to="/carteira" />}
@@ -106,10 +120,10 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  login: state.user.email,
-  pass: state.user.password,
-});
+// const mapStateToProps = (state) => ({
+//   login: state.user.email,
+//   pass: state.user.password,
+// });
 
 const mapDispatchToProps = (dispatch) => ({
   loggingIn: (email, password) => dispatch(loggingInAction(email, password)),
@@ -119,4 +133,4 @@ Login.propTypes = {
   loggingIn: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);
