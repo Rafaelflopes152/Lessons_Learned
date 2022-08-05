@@ -21,15 +21,10 @@ class Login extends React.Component {
   }
 
   onInputChange({ target }) {
-    // const {
-    //   email,
-    //   senha,
-    // } = this.state;
     const { value, type } = target;
     const validaEmail = /\S+@\S+\.\S+/;
     const { length } = value;
     const val = 6;
-    // const vazio = (senha !== '');
     if (type === 'email') {
       if (validaEmail.test(value)) {
         this.setState({ validEmail: true, email: value });
