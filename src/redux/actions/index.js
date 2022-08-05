@@ -1,9 +1,9 @@
 export const login = 'LOGIN';
 
-export const logando = (email, senha) => ({
+export const loggingIn = (email, password) => ({
   type: login,
   payload: {
     email,
-    senha,
+    password,
   },
 });

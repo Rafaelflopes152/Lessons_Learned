@@ -1,6 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { loggingIn as loggingInAction } from '../redux/actions';
 
 class Login extends React.Component {
   constructor() {
@@ -31,7 +33,7 @@ class Login extends React.Component {
       if (validaEmail.test(value)) {
         this.setState({ validEmail: true, email: value });
       }
-    } else if (length > val) {
+    } else if (length >= val) {
       this.setState({ validPassword: true, senha: value });
     }
 
@@ -46,15 +48,10 @@ class Login extends React.Component {
     const {
       email,
       senha,
-      loggedIn,
     } = this.state;
-    const { login, pass } = this.props;
-    if (email === login) {
-      console.log('oi');
-      this.setState({ loggedIn: true });
-    }
-    console.log(email, senha, loggedIn);
-    console.log(login, pass);
+    const { loggingIn } = this.props;
+    loggingIn(email, senha);
+    this.setState({ loggedIn: true });
   }
 
   render() {
@@ -109,16 +106,17 @@ class Login extends React.Component {
   }
 }
 
-// Login.propTypes = {
-//   usuario: PropTypes.string.isRequired,
-//   password: PropTypes.string.isRequired,
-// };
-
 const mapStateToProps = (state) => ({
   login: state.user.email,
   pass: state.user.password,
 });
 
-// const mapDispatchToProps = () => ({});
+const mapDispatchToProps = (dispatch) => ({
+  loggingIn: (email, password) => dispatch(loggingInAction(email, password)),
+});
 
-export default connect(mapStateToProps, null)(Login);
+Login.propTypes = {
+  loggingIn: PropTypes.func.isRequired,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
