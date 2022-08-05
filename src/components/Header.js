@@ -14,10 +14,12 @@ class header extends React.Component {
         <ul>
           <li data-testid="email-field">
             Email:
+            {' '}
             {login}
           </li>
           <li data-testid="total-field">
             Despesas Total:
+            {' '}
             {despesasTotal}
           </li>
           <li data-testid="header-currency-field">

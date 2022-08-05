@@ -115,11 +115,6 @@ class Login extends React.Component {
   }
 }
 
-// const mapStateToProps = (state) => ({
-//   login: state.user.email,
-//   pass: state.user.password,
-// });
-
 const mapDispatchToProps = (dispatch) => ({
   loggingIn: (email, password) => dispatch(loggingInAction(email, password)),
 });
