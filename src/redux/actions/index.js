@@ -1,8 +1,12 @@
-export const login = 'LOGIN';
+import getAPI from '../../services/api';
+
+export const LOGIN = 'LOGIN';
 export const CURRENCIES = 'CURRENCIES';
+export const EXPENSES = 'EXPENSES';
+export const TOTAL = 'TOTAL';
 
 export const loggingIn = (email, password) => ({
-  type: login,
+  type: LOGIN,
   payload: {
     email,
     password,
@@ -14,18 +18,23 @@ export const getCurrencies = (payload) => ({
   payload,
 });
 
+export const getTotalExpensesBRL = (payload) => ({
+  type: TOTAL,
+  payload,
+});
+
 export const fetchCurrency = () => async (dispatch) => {
-  const endPoint = 'https://economia.awesomeapi.com.br/json/all';
+  const moedas = await getAPI();
   try {
-    const response = await fetch(`${endPoint}`);
-    const responseJson = await response.json();
-    const result = Object.keys(responseJson).map((m) => m)
+    const result = Object.keys(moedas).map((m) => m)
       .filter((s) => (s !== 'USDT'));
     dispatch(getCurrencies(result));
-    // console.log(result);
-    // return result;
   } catch (error) {
-    // return error;
     console.log(error);
   }
 };
+
+export const getExpenses = (payload) => ({
+  type: EXPENSES,
+  payload,
+});

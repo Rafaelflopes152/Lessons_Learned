@@ -2,32 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const despesasTotal = 0;
+// const despesasTotal = 0;
 const Cambio = 'BRL';
 
 class header extends React.Component {
   render() {
-    const { login } = this.props;
+    const { login, depesasTotal } = this.props;
     return (
       <div>
         <h1>TrybeWallet!</h1>
-        <ul>
-          <li data-testid="email-field">
+        <div>
+          <p data-testid="email-field">
             Email:
             {' '}
             {login}
-          </li>
-          <li data-testid="total-field">
+          </p>
+          <p>
             Despesas Total:
-            {' '}
-            {despesasTotal}
-          </li>
-          <li data-testid="header-currency-field">
+          </p>
+
+          <p data-testid="total-field">
+            {depesasTotal.toFixed(2)}
+          </p>
+          <p data-testid="header-currency-field">
             Cambio:
             {' '}
             {Cambio}
-          </li>
-        </ul>
+          </p>
+        </div>
       </div>
     );
   }
@@ -35,10 +37,12 @@ class header extends React.Component {
 
 const mapStateToProps = (state) => ({
   login: state.user.email,
+  depesasTotal: state.wallet.totalExpensesBRL,
 });
 
 header.propTypes = {
   login: PropTypes.string.isRequired,
+  depesasTotal: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps)(header);
