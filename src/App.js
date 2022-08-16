@@ -9,11 +9,9 @@ import Wallet from './pages/Wallet';
 function App() {
   return (
     <Provider store={ store }>
-      {/* <div>Hello, TrybeWallet! rrr</div> */}
       <Switch>
         <Route exact path="/" component={ Login } />
         <Route path="/carteira" component={ Wallet } />
-        {/* <Route path="*" component={ NotFound } /> */}
       </Switch>
     </Provider>
   );

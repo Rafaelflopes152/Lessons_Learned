@@ -69,7 +69,6 @@ class WalletForm extends React.Component {
     } = this.state;
     return (
       <div id="WalletForm">
-        WalletForm
         <form>
           <label htmlFor="value-input">
             valor:

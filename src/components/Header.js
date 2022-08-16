@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-// const despesasTotal = 0;
 const Cambio = 'BRL';
 
 class header extends React.Component {
@@ -11,6 +10,7 @@ class header extends React.Component {
     return (
       <div>
         <h1>TrybeWallet!</h1>
+        <hr />
         <div>
           <p data-testid="email-field">
             Email:
@@ -20,7 +20,6 @@ class header extends React.Component {
           <p>
             Despesas Total:
           </p>
-
           <p data-testid="total-field">
             {depesasTotal.toFixed(2)}
           </p>
