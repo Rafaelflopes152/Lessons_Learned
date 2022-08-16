@@ -52,8 +52,6 @@ class WalletForm extends React.Component {
     const moedas = await getAPI();
     const { ask } = moedas[currency];
     const vBRL = Number(value) * Number(ask);
-    // // const testes = Object.entries(moedas).map((m) => m);
-    // console.log(vBRL, currency, ask);
     this.setState({ exchangeRates: moedas });
     includExpenses(this.state);
     totalExpenses(vBRL);
