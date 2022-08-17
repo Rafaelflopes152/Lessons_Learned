@@ -1,0 +1,179 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 0,
+    "pending": 0,
+    "failures": 4,
+    "start": "2022-08-17T18:18:20.596Z",
+    "end": "2022-08-17T18:22:05.001Z",
+    "duration": 224405,
+    "testsRegistered": 4,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "387507e0-82fb-4990-b80c-96226f56d507",
+      "title": "",
+      "fullFile": "cypress/integration/10.TestCoverage_spec.js",
+      "file": "cypress/integration/10.TestCoverage_spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "70bb9341-03d6-43b1-8ff4-fdd99ea9a3e8",
+          "title": "10 - Desenvolva testes para atingir 90% de cobertura total da aplicação",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cobertura de \"Statements\" total deverá ser maior ou igual a 90.",
+              "fullTitle": "10 - Desenvolva testes para atingir 90% de cobertura total da aplicação Cobertura de \"Statements\" total deverá ser maior ou igual a 90.",
+              "timedOut": null,
+              "duration": 60117,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('getCoverage', (0, _getId.getId)()).its('total.statements.pct', {\n  timeout: 0\n}).should('be.gte', 90.00);",
+              "err": {
+                "message": "CypressError: `cy.task('getCoverage')` timed out after waiting `60000ms`.\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('getCoverage')` timed out after waiting `60000ms`.\n\nhttps://on.cypress.io/api/task\n    at http://localhost:39327/__cypress/runner/cypress_runner.js:167081:78\n    at tryCatcher (http://localhost:39327/__cypress/runner/cypress_runner.js:13022:23)\n    at http://localhost:39327/__cypress/runner/cypress_runner.js:8144:41\n    at tryCatcher (http://localhost:39327/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (http://localhost:39327/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (http://localhost:39327/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (http://localhost:39327/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (http://localhost:39327/__cypress/runner/cypress_runner.js:11135:18)\n    at _drainQueueStep (http://localhost:39327/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (http://localhost:39327/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:39327/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (http://localhost:39327/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:39327/__cypress/tests?p=cypress/integration/10.TestCoverage_spec.js:103:8)",
+                "diff": null
+              },
+              "uuid": "31e9cb9d-1a3e-4fc7-946d-ba1882a51c50",
+              "parentUUID": "70bb9341-03d6-43b1-8ff4-fdd99ea9a3e8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cobertura de \"Functions\" total deverá ser maior ou igual a 90.",
+              "fullTitle": "10 - Desenvolva testes para atingir 90% de cobertura total da aplicação Cobertura de \"Functions\" total deverá ser maior ou igual a 90.",
+              "timedOut": null,
+              "duration": 60715,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('getCoverage', (0, _getId.getId)()).its('total.functions.pct', {\n  timeout: 0\n}).should('be.gte', 90.00);",
+              "err": {
+                "message": "CypressError: `cy.task('getCoverage')` timed out after waiting `60000ms`.\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('getCoverage')` timed out after waiting `60000ms`.\n\nhttps://on.cypress.io/api/task\n    at http://localhost:39327/__cypress/runner/cypress_runner.js:167081:78\n    at tryCatcher (http://localhost:39327/__cypress/runner/cypress_runner.js:13022:23)\n    at http://localhost:39327/__cypress/runner/cypress_runner.js:8144:41\n    at tryCatcher (http://localhost:39327/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (http://localhost:39327/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (http://localhost:39327/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (http://localhost:39327/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (http://localhost:39327/__cypress/runner/cypress_runner.js:11135:18)\n    at _drainQueueStep (http://localhost:39327/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (http://localhost:39327/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:39327/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (http://localhost:39327/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:39327/__cypress/tests?p=cypress/integration/10.TestCoverage_spec.js:108:8)",
+                "diff": null
+              },
+              "uuid": "377481b7-d750-49e0-bd2b-7cbeae10e300",
+              "parentUUID": "70bb9341-03d6-43b1-8ff4-fdd99ea9a3e8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cobertura de \"Branches\" total deverá ser maior ou igual a 90.",
+              "fullTitle": "10 - Desenvolva testes para atingir 90% de cobertura total da aplicação Cobertura de \"Branches\" total deverá ser maior ou igual a 90.",
+              "timedOut": null,
+              "duration": 60147,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('getCoverage', (0, _getId.getId)()).its('total.branches.pct', {\n  timeout: 0\n}).should('be.gte', 90.00);",
+              "err": {
+                "message": "CypressError: `cy.task('getCoverage')` timed out after waiting `60000ms`.\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('getCoverage')` timed out after waiting `60000ms`.\n\nhttps://on.cypress.io/api/task\n    at http://localhost:39327/__cypress/runner/cypress_runner.js:167081:78\n    at tryCatcher (http://localhost:39327/__cypress/runner/cypress_runner.js:13022:23)\n    at http://localhost:39327/__cypress/runner/cypress_runner.js:8144:41\n    at tryCatcher (http://localhost:39327/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (http://localhost:39327/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (http://localhost:39327/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (http://localhost:39327/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (http://localhost:39327/__cypress/runner/cypress_runner.js:11135:18)\n    at _drainQueueStep (http://localhost:39327/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (http://localhost:39327/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (http://localhost:39327/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (http://localhost:39327/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Context.eval (http://localhost:39327/__cypress/tests?p=cypress/integration/10.TestCoverage_spec.js:113:8)",
+                "diff": null
+              },
+              "uuid": "851f01ef-2a1a-4e22-a9e7-93621060dc89",
+              "parentUUID": "70bb9341-03d6-43b1-8ff4-fdd99ea9a3e8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cobertura de \"Lines\" total deverá ser maior ou igual a 90.",
+              "fullTitle": "10 - Desenvolva testes para atingir 90% de cobertura total da aplicação Cobertura de \"Lines\" total deverá ser maior ou igual a 90.",
+              "timedOut": null,
+              "duration": 41560,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.task('getCoverage', (0, _getId.getId)()).its('total.lines.pct', {\n  timeout: 0\n}).should('be.gte', 90.00);",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 0ms: expected 75 to be at least 90",
+                "estack": "AssertionError: Timed out retrying after 0ms: expected 75 to be at least 90\n    at Context.eval (http://localhost:39327/__cypress/tests?p=cypress/integration/10.TestCoverage_spec.js:120:8)",
+                "diff": "- 75\n+ 90\n"
+              },
+              "uuid": "bfaebc54-9bee-485b-9ca5-611c63d8f089",
+              "parentUUID": "70bb9341-03d6-43b1-8ff4-fdd99ea9a3e8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "31e9cb9d-1a3e-4fc7-946d-ba1882a51c50",
+            "377481b7-d750-49e0-bd2b-7cbeae10e300",
+            "851f01ef-2a1a-4e22-a9e7-93621060dc89",
+            "bfaebc54-9bee-485b-9ca5-611c63d8f089"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 222539,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
