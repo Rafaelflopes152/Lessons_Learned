@@ -21,11 +21,7 @@ class header extends React.Component {
             Despesas Total:
             <div data-testid="total-field">
               {Math.abs(depesasTotal).toFixed(2)}
-              {/* {(depesasTotal = 0)
-                ? (depesasTotal)
-                : depesasTotal.toFixed(2)
-                } */}
-            </div> 
+            </div>
           </p>
           <p data-testid="header-currency-field">
             Cambio:
