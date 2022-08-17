@@ -8,10 +8,10 @@ class header extends React.Component {
   render() {
     const { login, depesasTotal } = this.props;
     return (
-      <div>
+      <div align="center">
         <h1>TrybeWallet!</h1>
         <hr />
-        <div>
+        <div align="center">
           <p data-testid="email-field">
             Email:
             {' '}
@@ -19,9 +19,13 @@ class header extends React.Component {
           </p>
           <p>
             Despesas Total:
-          </p>
-          <p data-testid="total-field">
-            {depesasTotal.toFixed(2)}
+            <div data-testid="total-field">
+              {Math.abs(depesasTotal).toFixed(2)}
+              {/* {(depesasTotal = 0)
+                ? (depesasTotal)
+                : depesasTotal.toFixed(2)
+                } */}
+            </div> 
           </p>
           <p data-testid="header-currency-field">
             Cambio:
@@ -35,13 +39,15 @@ class header extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
+  despesas: state.wallet.expenses,
   login: state.user.email,
   depesasTotal: state.wallet.totalExpensesBRL,
 });
 
 header.propTypes = {
-  login: PropTypes.string.isRequired,
-  depesasTotal: PropTypes.number.isRequired,
-};
+  despesas: PropTypes.array,
+  login: PropTypes.string,
+  depesasTotal: PropTypes.number,
+}.isRequired;
 
 export default connect(mapStateToProps)(header);

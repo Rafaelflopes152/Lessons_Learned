@@ -1,4 +1,4 @@
-import { CURRENCIES, EXPENSES, TOTAL } from '../actions';
+import { CURRENCIES, EXPENSES, TOTAL, EXCLUDE_EXPENSES, SUBTOTAL } from '../actions';
 
 export const INITIAL_STATE = {
   currencies: [], // array de string
@@ -20,12 +20,25 @@ function walletReducer(state = INITIAL_STATE, action) {
     return {
       ...state,
       expenses: [...state.expenses, { id: state.idToNext, ...action.payload }],
+      totalExpensesBRL: state.totalExpensesBRL + (Number(action.payload.value)
+      * Number(action.payload.exchangeRates[action.payload.currency].ask)),
       idToNext: state.idToNext + 1,
     };
   case TOTAL:
     return {
       ...state,
       totalExpensesBRL: state.totalExpensesBRL + action.payload,
+    };
+  case EXCLUDE_EXPENSES:
+    return {
+      ...state,
+      expenses: action.payload,
+    };
+  case SUBTOTAL:
+    return {
+      ...state,
+      totalExpensesBRL: (state.totalExpensesBRL - (action.payload)),
+      idToNext: state.idToNext - 1,
     };
   default:
     return state;

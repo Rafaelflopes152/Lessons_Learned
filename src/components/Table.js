@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { excludeExpenses, subtractionTotal } from '../redux/actions';
 
 class Table extends Component {
+  constructor(props) {
+    super(props);
+    this.isRemoveExpense = this.isRemoveExpense.bind(this);
+  }
+
+  isRemoveExpense({ target }) {
+    const {
+      despesas,
+      removeExpenses,
+      subtraiTotal,
+    } = this.props;
+    const { id } = target;
+    const despesasAtual = despesas.filter((e) => (e.id !== Number(id)));
+    const despesa = despesas.filter((e) => (e.id === Number(id)))[0];
+    const { value, exchangeRates, currency } = despesa;
+    subtraiTotal((Number(value)
+    * Number(exchangeRates[currency].ask)));
+    removeExpenses(despesasAtual);
+  }
+
   render() {
     const { despesas } = this.props;
     return (
@@ -25,7 +46,6 @@ class Table extends Component {
             <tr key={ d.id }>
               <td>
                 {d.description}
-                {/* { console.log(d.exchangeRates[d.currency].ask)} */}
               </td>
               <td>{d.tag}</td>
               <td>{d.method}</td>
@@ -49,7 +69,7 @@ class Table extends Component {
                   data-testid="delete-btn"
                   type="button"
                   id={ d.id }
-                  // onClick={  }
+                  onClick={ this.isRemoveExpense }
                 >
                   Excluir
                 </button>
@@ -64,10 +84,17 @@ class Table extends Component {
 
 Table.propTypes = {
   despesas: PropTypes.array,
+  depesasTotal: PropTypes.number,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   despesas: state.wallet.expenses,
+  depesasTotal: state.wallet.totalExpensesBRL,
 });
 
-export default connect(mapStateToProps)(Table);
+const mapDispatchToProps = (dispatch) => ({
+  removeExpenses: (payload) => dispatch(excludeExpenses(payload)),
+  subtraiTotal: (payload) => dispatch(subtractionTotal(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);

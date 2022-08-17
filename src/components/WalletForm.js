@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCurrency, getExpenses, getTotalExpensesBRL } from '../redux/actions';
+import { fetchCurrency, getExpenses } from '../redux/actions';
 import getAPI from '../services/api';
 
 const initialState = {
@@ -47,14 +47,10 @@ class WalletForm extends React.Component {
   }
 
   async isAddExpense() {
-    const { includExpenses, totalExpenses } = this.props;
-    const { value, currency } = this.state;
+    const { includExpenses } = this.props;
     const moedas = await getAPI();
-    const { ask } = moedas[currency];
-    const vBRL = Number(value) * Number(ask);
     this.setState({ exchangeRates: moedas });
     includExpenses(this.state);
-    totalExpenses(vBRL);
     this.resetInput();
   }
 
@@ -154,7 +150,6 @@ WalletForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   dispatchCurrencies: PropTypes.func.isRequired,
   includExpenses: PropTypes.func.isRequired,
-  totalExpenses: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -165,7 +160,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   dispatchCurrencies: () => dispatch(fetchCurrency()),
   includExpenses: (payload) => dispatch(getExpenses(payload)),
-  totalExpenses: (payload) => dispatch(getTotalExpensesBRL(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);
