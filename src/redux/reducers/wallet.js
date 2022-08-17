@@ -37,7 +37,7 @@ function walletReducer(state = INITIAL_STATE, action) {
   case SUBTOTAL:
     return {
       ...state,
-      totalExpensesBRL: (state.totalExpensesBRL - (action.payload)),
+      totalExpensesBRL: (state.totalExpensesBRL - action.payload),
       idToNext: state.idToNext - 1,
     };
   default:

@@ -17,12 +17,12 @@ class header extends React.Component {
             {' '}
             {login}
           </p>
-          <p>
+          <div>
             Despesas Total:
-            <div data-testid="total-field">
+            <p data-testid="total-field">
               {Math.abs(depesasTotal).toFixed(2)}
-            </div>
-          </p>
+            </p>
+          </div>
           <p data-testid="header-currency-field">
             Cambio:
             {' '}
